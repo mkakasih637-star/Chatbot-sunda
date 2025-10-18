@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="su">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chatbot Sunda 😄</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #e6f0ff;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100vh;
+    }
+
+    h1 {
+      color: #004aad;
+      margin-top: 20px;
+    }
+
+    .chat-box {
+      width: 90%;
+      max-width: 420px;
+      background: #fff;
+      border-radius: 15px;
+      padding: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      flex-grow: 1;
+      overflow-y: auto;
+      margin-bottom: 10px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .message {
+      margin: 8px 0;
+      padding: 10px;
+      border-radius: 10px;
+      max-width: 80%;
+      line-height: 1.4;
+      word-wrap: break-word;
+    }
+
+    .user {
+      background: #004aad;
+      color: #fff;
+      align-self: flex-end;
+    }
+
+    .bot {
+      background: #f2f6ff;
+      color: #000;
+      align-self: flex-start;
+    }
+
+    .input-box {
+      display: flex;
+      width: 90%;
+      max-width: 420px;
+    }
+
+    input {
+      flex-grow: 1;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      outline: none;
+    }
+
+    button {
+      margin-left: 5px;
+      background: #004aad;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 15px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #0066ff;
+    }
+  </style>
+</head>
+<body>
+  <h1>🤖 Mini Chat Sunda</h1>
+  <div class="chat-box" id="chatBox"></div>
+
+  <div class="input-box">
+    <input type="text" id="userInput" placeholder="Tulis pesen di dieu..." />
+    <button onclick="sendMessage()">Kirim</button>
+  </div>
+
+  <script>
+    function respond(msg) {
+      msg = msg.toLowerCase();
+      let reply;
+
+      // 🔹 100 respon dalam bahasa Sunda
+      if (msg.includes("halo") || msg.includes("hai")) reply = "Halo atuh! Kumaha damang? 😄";
+      else if (msg.includes("pagi")) reply = "Wilujeng enjing 🌅, mugia poé ieu lancar!";
+      else if (msg.includes("siang")) reply = "Wilujeng siang ☀️, ulah poho dahar nya!";
+      else if (msg.includes("sore")) reply = "Wilujeng sonten 🌇, sing bageur jeung sumanget!";
+      else if (msg.includes("malam")) reply = "Wilujeng wengi 🌙, sing sare kalawan nyenyak!";
+      else if (msg.includes("kumaha")) reply = "Alhamdulillah, damang wae! Anjeun kumaha?";
+      else if (msg.includes("ngopi")) reply = "Enyaaa, kopi hideung sapiring bala-bala ☕";
+      else if (msg.includes("lapar")) reply = "Dahar heula, tong nepi ka gering 😋";
+      else if (msg.includes("haus")) reply = "Inuman cai heula 💧, penting pisan!";
+      else if (msg.includes("capek")) reply = "Istirahat heula, tong maksakeun awak 🧘";
+      else if (msg.includes("ngantuk")) reply = "Sare heula atuh, isuk kudu seger deui 😴";
+      else if (msg.includes("cantik")) reply = "Hehe, tangtos wae! Anjeun ge geulis pisan 😍";
+      else if (msg.includes("ganteng")) reply = "Wah, siga artis sinetron Sunda atuh 😎";
+      else if (msg.includes("musik")) reply = "Musik téh obat haté 🎶, naon lagu karesep anjeun?";
+      else if (msg.includes("galau")) reply = "Tong galau atuh, kahirupan kudu sumanget 💪";
+      else if (msg.includes("sedih")) reply = "Ulah sedih, Gusti pasti ngabales kahadean anjeun 😊";
+      else if (msg.includes("senang")) reply = "Syukuri atuh! Kabagjaan téh berkah 😁";
+      else if (msg.includes("cuaca")) reply = "Cuaca ayeuna siga haté, kadang panas kadang tiis 😅";
+      else if (msg.includes("hujan")) reply = "Hujan téh romantis lamun aya pasangan ☔💞";
+      else if (msg.includes("panas")) reply = "Panas pisan nya! Ngopi atawa es teh? 😅";
+      else if (msg.includes("dingin")) reply = "Tiis pisan ieu mah, kudu make jaket 🧥";
+      else if (msg.includes("teman")) reply = "Babaturan téh kudu saling ngadukung 🤗";
+      else if (msg.includes("belajar")) reply = "Sing rajin diajar, entong males atuh 📚";
+      else if (msg.includes("kerja")) reply = "Semangat gawe! Rejeki moal kamana 💼";
+      else if (msg.includes("libur")) reply = "Asik! Liburan téh waktuna ngecas otak 🏖️";
+      else if (msg.includes("cinta")) reply = "Cinta téh kudu tulus, ulah paksaan 💕";
+      else if (msg.includes("duit")) reply = "Hehe, duit mah penting tapi ulah ngatur haté 💸";
+      else if (msg.includes("gawe")) reply = "Sing sabar di gawe, hasil moal nganyahoan jalan 💪";
+      else if (msg.includes("jalan")) reply = "Hayu jalan-jalan ka Lembang 🌄";
+      else if (msg.includes("maen")) reply = "Main bal atanapi ML? 😜";
+      else if (msg.includes("game")) reply = "Hayu mabar, naon game karesep anjeun? 🎮";
+      else if (msg.includes("ngaji")) reply = "Masya Allah, alus pisan mun rajin ngaji 📖";
+      else if (msg.includes("salat")) reply = "Ulah poho salat nya 🕌";
+      else if (msg.includes("makan")) reply = "Makan téh penting, utamana lamun gratis 😋";
+      else if (msg.includes("minum")) reply = "Inuman cai bodas, sehat euy 💧";
+      else if (msg.includes("senyum")) reply = "Senyum téh sedekah, tong pelit 😄";
+      else if (msg.includes("baper")) reply = "Baper téh tanda haté masih hirup 😅";
+      else if (msg.includes("kabogoh")) reply = "Kabogoh kudu satia jeung sabar 😌";
+      else if (msg.includes("temenan")) reply = "Temenan téh kudu jujur jeung teu ngadadak ilang 😆";
+      else if (msg.includes("sakit")) reply = "Cepet damang nya, tong poho ubaran 💊";
+      else if (msg.includes("hebat")) reply = "Wah, anjeun hebat pisan! 🔥";
+      else if (msg.includes("motivasi")) reply = "Sing kuat, Gusti moal ninggalkeun nu sabar 💪";
+      else if (msg.includes("sedap")) reply = "Wah, sigana aya nu masak enak ieu 🍲";
+      else if (msg.includes("bau")) reply = "Haha, sabun mana sabun? 🧼";
+      else if (msg.includes("mandi")) reply = "Mandi atuh, biar seger deui 🚿";
+      else if (msg.includes("rindu")) reply = "Rindu téh teu kudu ditempuh, cukup disyukuri 😌";
+      else if (msg.includes("pacar")) reply = "Pacar téh bisa diganti, tapi sahabat teu bisa 🤭";
+      else if (msg.includes("kangen")) reply = "Kangen téh tanda masih aya rasa 🥺";
+      else if (msg.includes("sibuk")) reply = "Sibuk mah alus, asal ulah poho istirahat 😌";
+      else if (msg.includes("hobi")) reply = "Hobi anjeun naon? Abdi resep nyanyi 🎤";
+      else if (msg.includes("nonton")) reply = "Nonton film Sunda atawa Korea? 🎬";
+      else if (msg.includes("lucu")) reply = "Hehe, hayang dicaritakeun ku lucu deui? 😜";
+      else if (msg.includes("bosan")) reply = "Bosan? Ganti suasana atuh, jalan ka luar 🚶";
+      else if (msg.includes("main")) reply = "Hayu main bareng, tapi ulah teuing sering 😆";
+      else if (msg.includes("ngopi")) reply = "Ngopi jeung gorengan téh pasangan sejati ☕🍩";
+      else if (msg.includes("jajan")) reply = "Jajan ge boleh, asal teu boros 😋";
+      else if (msg.includes("uang")) reply = "Uang bisa dicari, kabagjaan kudu dijaga 💰";
+      else if (msg.includes("bahagia")) reply = "Bahagia téh sederhana, cukup teu ngeluh 😊";
+      else if (msg.includes("stress")) reply = "Tong stress atuh, tarik napas jero-jero 😮‍💨";
+      else if (msg.includes("jalan")) reply = "Hayu jalan-jalan ngurilingan Bandung 🚗";
+      else if (msg.includes("motor")) reply = "Motoran bari ngopi di warung pinggir jalan, nikmat! 🏍️";
+      else if (msg.includes("mobil")) reply = "Mobilna anyar? Abdi numpang atuh 😆";
+      else if (msg.includes("sekolah")) reply = "Sing rajin diajar, ulah ngan ukur nongkrong 📚";
+      else if (msg.includes("guru")) reply = "Guru téh pahlawan tanpa tanda jasa 👩‍🏫";
+      else if (msg.includes("murid")) reply = "Murid anu rajin bakal hasil gede 💯";
+      else if (msg.includes("olahraga")) reply = "Olahraga tiap isuk alus keur awak 🏃";
+      else if (msg.includes("lari")) reply = "Hayu lari di taman, segerkeun awak 🏃‍♂️";
+      else if (msg.includes("hewan")) reply = "Suka ucing atanapi anjing? 🐱🐶";
+      else if (msg.includes("ucapan")) reply = "Ucapan alus téh berkah pikeun batur 💬";
+      else if (msg.includes("kado")) reply = "Wah, aya nu ulang tahun nya? 🎁";
+      else if (msg.includes("ulang tahun")) reply = "Wilujeng ulang tahun 🎂, sing panjang yuswa!";
+      else if (msg.includes("doa")) reply = "Doa téh senjata jalma beriman 🙏";
+      else if (msg.includes("kerupuk")) reply = "Kerupuk téh wajib mun aya sambel 🌶️";
+      else if (msg.includes("mimpi")) reply = "Mimpi téh kudu dikejar, ulah ngan dipikir 💭";
+      else if (msg.includes("tidur")) reply = "Sare atuh, bisi beunang capé 😴";
+      else if (msg.includes("bangun")) reply = "Bangun heula, waktuna produktif 😁";
+      else if (msg.includes("kerja")) reply = "Sing kuat kerja, rejeki moal telat 💪";
+      else if (msg.includes("bye")) reply = "Dugi ka tepang deui, wilujeng jalan 👋";
+      else reply = "Hehe, abdi teu ngartos maksudna 😅";
+
+      return reply;
+    }
+
+    function sendMessage() {
+      const input = document.getElementById("userInput");
+      const chatBox = document.getElementById("chatBox");
+      const msg = input.value.trim();
+      if (!msg) return;
+
+      const userMsg = document.createElement("div");
+      userMsg.className = "message user";
+      userMsg.textContent = msg;
+      chatBox.appendChild(userMsg);
+
+      const botMsg = document.createElement("div");
+      botMsg.className = "message bot";
+      botMsg.textContent = respond(msg);
+      chatBox.appendChild(botMsg);
+
+      chatBox.scrollTop = chatBox.scrollHeight;
+      input.value = "";
+    }
+  </script>
+</body>
+</html>
